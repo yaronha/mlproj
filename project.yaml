@@ -1,0 +1,22 @@
+name: new-project
+functions:
+- url: https://raw.githubusercontent.com/mlrun/functions/master/serving/xgboost/xgb_serving.ipynb
+  name: serving
+- name: tstfunc
+  spec:
+    kind: job
+    metadata:
+      name: tstfunc
+      project: new-project
+    spec:
+      command: handler.py
+      args: []
+      image: mlrun/mlrun:dev
+      volumes: []
+      volume_mounts: []
+      env: []
+      description: ''
+      build:
+        commands: []
+workflows:
+  main: workflow.py
